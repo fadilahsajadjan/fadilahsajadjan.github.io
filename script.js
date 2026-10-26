@@ -45,21 +45,3 @@ window.addEventListener('scroll', () => {
   });
 }, { passive: true });
 
-const picker = document.querySelector('#video-picker');
-const player = document.querySelector('#portfolio-video');
-const playerFrame = document.querySelector('.video-frame');
-if (picker && player && playerFrame) {
-  let currentPreview = null;
-  picker.addEventListener('change', () => {
-    const file = picker.files && picker.files[0];
-    if (!file || !file.type.startsWith('video/')) return;
-    if (currentPreview) URL.revokeObjectURL(currentPreview);
-    currentPreview = URL.createObjectURL(file);
-    player.src = currentPreview;
-    playerFrame.classList.add('has-video');
-    player.load();
-  });
-  window.addEventListener('pagehide', () => {
-    if (currentPreview) URL.revokeObjectURL(currentPreview);
-  });
-}

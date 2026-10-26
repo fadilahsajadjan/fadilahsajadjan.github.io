@@ -14,7 +14,7 @@ Then visit `http://localhost:8000`. No package installation or build step is req
 
 ## Website video showcase
 
-The project showcase includes a video player. Use **Choose a video** to preview a clip from your device in that browser session. To include a video on the published site, add an H.264 MP4 named `portfolio-reel.mp4` under `assets/media/`. The included HTML already points to `assets/media/portfolio-reel.mp4`; the PDF poster image is used as its preview image. The local file picker is only for preview and does not upload or publish the clip.
+The showcase has no visitor-facing upload control. When Fadilah supplies a video, add the approved H.264 MP4 as `assets/media/portfolio-reel.mp4` to publish it in the player.
 
 ## Publish with GitHub Pages
 
