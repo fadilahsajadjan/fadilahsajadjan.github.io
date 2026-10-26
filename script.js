@@ -45,3 +45,13 @@ window.addEventListener('scroll', () => {
   });
 }, { passive: true });
 
+const portfolioVideo = document.querySelector('#portfolio-video');
+const videoFrame = document.querySelector('.video-frame');
+if (portfolioVideo && videoFrame) {
+  portfolioVideo.addEventListener('loadeddata', () => videoFrame.classList.add('has-video'), { once: true });
+  portfolioVideo.addEventListener('error', () => {
+    const status = videoFrame.querySelector('.video-placeholder small');
+    if (status) status.textContent = 'Video could not be loaded';
+  }, { once: true });
+}
+

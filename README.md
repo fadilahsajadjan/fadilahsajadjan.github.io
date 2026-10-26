@@ -14,7 +14,7 @@ Then visit `http://localhost:8000`. No package installation or build step is req
 
 ## Website video showcase
 
-The showcase has no visitor-facing upload control. When Fadilah supplies a video, add the approved H.264 MP4 as `assets/media/portfolio-reel.mp4` to publish it in the player.
+The showcase plays `assets/media/portfolio-reel.mp4`. It has no visitor-facing upload control. The supplied portfolio reel is included at that path.
 
 ## Publish with GitHub Pages
 
@@ -27,7 +27,7 @@ Before publishing:
 
 1. Review the public email, LinkedIn, and GitHub details in `index.html` before publishing.
 2. Confirm each role, organization, event, credential, and design count is accurate and public.
-3. Add or update the video file if you want a video on the live site.
+3. Keep `assets/media/portfolio-reel.mp4` alongside the website files to publish the included reel.
 4. Replace `fadilah-sajad-jan-portfolio.pdf` if you revise the PDF.
 
 ## Credentials
@@ -42,9 +42,10 @@ The business performance case study uses `data/monthly_business_performance.csv`
 
 - `index.html` - portfolio website.
 - `project.html` - business performance sample analysis.
-- `style.css` and `script.js` - styling, motion, navigation, and video preview behavior.
+- `style.css` and `script.js` - styling, motion, navigation, and video playback behavior.
 - `fadilah-sajad-jan-portfolio.pdf` - six-page PDF portfolio.
 - `assets/media/video-poster.svg` - abstract video-preview artwork.
 - `assets/credentials/` - supplied Power BI and Pixels to Purpose certificate images.
-- `assets/media/portfolio-reel.mp4` - optional video file path for publishing; add your clip here.
+- `assets/media/portfolio-reel.mp4` - portfolio video showcase.
+- `assets/media/fadilah-sajad-jan-resume.jpg` - résumé image linked from Contact.
 - `data/monthly_business_performance.csv` - synthetic learning-project dataset.
