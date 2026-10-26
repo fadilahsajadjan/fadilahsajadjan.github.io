@@ -48,7 +48,11 @@ window.addEventListener('scroll', () => {
 const portfolioVideo = document.querySelector('#portfolio-video');
 const videoFrame = document.querySelector('.video-frame');
 if (portfolioVideo && videoFrame) {
-  portfolioVideo.addEventListener('loadeddata', () => videoFrame.classList.add('has-video'), { once: true });
+  const revealVideo = () => videoFrame.classList.add('has-video');
+  ['loadeddata', 'canplay', 'playing', 'timeupdate'].forEach((eventName) => {
+    portfolioVideo.addEventListener(eventName, revealVideo, { once: true });
+  });
+  if (portfolioVideo.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) revealVideo();
   portfolioVideo.addEventListener('error', () => {
     const status = videoFrame.querySelector('.video-placeholder small');
     if (status) status.textContent = 'Video could not be loaded';
