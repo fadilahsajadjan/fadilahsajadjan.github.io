@@ -48,14 +48,28 @@ window.addEventListener('scroll', () => {
 const portfolioVideo = document.querySelector('#portfolio-video');
 const videoFrame = document.querySelector('.video-frame');
 if (portfolioVideo && videoFrame) {
+  const playOverlay = videoFrame.querySelector('.video-play-overlay');
   const revealVideo = () => videoFrame.classList.add('has-video');
   ['loadeddata', 'canplay', 'playing', 'timeupdate'].forEach((eventName) => {
     portfolioVideo.addEventListener(eventName, revealVideo, { once: true });
   });
   if (portfolioVideo.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) revealVideo();
+  const syncVideoState = () => {
+    videoFrame.classList.toggle('is-playing', !portfolioVideo.paused && !portfolioVideo.ended);
+  };
+  ['playing', 'pause', 'ended'].forEach((eventName) => {
+    portfolioVideo.addEventListener(eventName, syncVideoState);
+  });
+  playOverlay?.addEventListener('click', async () => {
+    portfolioVideo.muted = true;
+    try {
+      await portfolioVideo.play();
+    } catch {
+      playOverlay.textContent = 'Unable to play — try reloading';
+    }
+  });
   portfolioVideo.addEventListener('error', () => {
-    const status = videoFrame.querySelector('.video-placeholder small');
-    if (status) status.textContent = 'Video could not be loaded';
+    if (playOverlay) playOverlay.textContent = 'Video could not be loaded';
   }, { once: true });
 }
 

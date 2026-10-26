@@ -19,3 +19,11 @@
 .credential-note{color:#97a5b6;font-size:.78rem;margin-top:18px}
 @media(max-width:620px){.credential-grid{grid-template-columns:1fr}.credential-grid article,.credential-card{min-height:128px;padding:16px}.credential-card.has-thumb h3,.credential-card.has-thumb p,.credential-card.has-thumb small{max-width:calc(100% - 91px)}.credential-thumb{right:12px;top:25px;width:78px;height:62px}}
 @media(prefers-reduced-motion:reduce){.credential-grid article,.credential-card{transition:none}}
+
+/* A clear, touch-friendly play action remains available if autoplay is blocked. */
+.video-frame{position:relative}
+.video-play-overlay{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:10px;padding:14px 19px;border:1px solid #ffdc45aa;border-radius:999px;background:#08172ce8;color:#ffdc45;font:600 .78rem var(--sans);cursor:pointer;box-shadow:0 8px 30px #02081288;transition:opacity .2s,transform .2s}
+.video-play-overlay span{font-size:.75rem}
+.video-play-overlay:hover{transform:translate(-50%,-50%) scale(1.04);background:#10233fee}
+.video-frame.is-playing .video-play-overlay{opacity:0;pointer-events:none}
+.video-play-overlay:focus-visible{outline:3px solid #fff;outline-offset:4px}
